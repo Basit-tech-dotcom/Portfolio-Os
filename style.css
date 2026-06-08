@@ -1,0 +1,383 @@
+/* =============================================
+   PORTFOLIO MANAGEMENT SYSTEM — style.css
+   ============================================= */
+
+/* ---------- RESET & ROOT VARIABLES ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:         #0d0d0f;
+  --bg2:        #151518;
+  --bg3:        #1c1c21;
+  --bg4:        #232328;
+  --border:     #2e2e36;
+  --border2:    #3d3d4a;
+  --text:       #e8e8f0;
+  --text2:      #9898b0;
+  --text3:      #5a5a6e;
+  --accent:     #7c6fff;
+  --accent2:    #a594ff;
+  --accent-bg:  rgba(124, 111, 255, 0.12);
+  --green:      #4ade80;
+  --green-bg:   rgba(74, 222, 128, 0.1);
+  --red:        #f87171;
+  --red-bg:     rgba(248, 113, 113, 0.1);
+  --amber:      #fbbf24;
+  --amber-bg:   rgba(251, 191, 36, 0.1);
+  --radius:     10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --font:       'DM Sans', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+}
+
+/* ---------- GOOGLE FONTS ---------- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ---------- BASE ---------- */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+input, textarea, select {
+  font-family: var(--font);
+  font-size: 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 10px 14px;
+  width: 100%;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.18s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+}
+.btn-primary:hover { background: var(--accent2); }
+
+.btn-secondary {
+  background: var(--bg3);
+  color: var(--text);
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--border2);
+  background: var(--bg4);
+}
+
+.btn-danger {
+  background: var(--red-bg);
+  color: var(--red);
+  padding: 7px 14px;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+.btn-danger:hover { background: rgba(248, 113, 113, 0.2); }
+
+.btn-sm    { padding: 6px 12px; font-size: 13px; }
+.btn-icon  {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.btn-icon:hover { border-color: var(--border2); color: var(--text); }
+
+/* ---------- CARDS ---------- */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+/* ---------- TYPOGRAPHY HELPERS ---------- */
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  display: block;
+}
+.form-group   { margin-bottom: 1rem; }
+.text-muted   { color: var(--text2); }
+.text-small   { font-size: 13px; }
+.text-danger  { color: var(--red); }
+.text-success { color: var(--green); }
+
+/* ---------- BADGES & TAGS ---------- */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.badge-accent { background: var(--accent-bg); color: var(--accent2); }
+.badge-green  { background: var(--green-bg);  color: var(--green); }
+.badge-red    { background: var(--red-bg);    color: var(--red); }
+.badge-amber  { background: var(--amber-bg);  color: var(--amber); }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* ---------- ALERTS ---------- */
+.alert {
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+.alert-danger  { background: var(--red-bg);   color: var(--red);   border: 1px solid rgba(248,113,113,0.2); }
+.alert-success { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
+
+/* ---------- UTILITY FLEX / GRID ---------- */
+.flex             { display: flex; }
+.flex-col         { flex-direction: column; }
+.items-center     { align-items: center; }
+.justify-between  { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 0.75rem; }
+.gap-3 { gap: 1rem; }
+.gap-4 { gap: 1.5rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+
+/* =============================================
+   AUTH PAGE
+   ============================================= */
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.auth-box    { width: 420px; max-width: 95vw; }
+.auth-logo   { font-family: var(--font-serif); font-size: 2rem; color: var(--accent2); margin-bottom: 0.25rem; }
+.auth-sub    { color: var(--text2); font-size: 14px; margin-bottom: 2rem; }
+.auth-toggle { text-align: center; margin-top: 1rem; font-size: 14px; color: var(--text2); }
+.auth-toggle a { color: var(--accent2); cursor: pointer; text-decoration: none; }
+.auth-toggle a:hover { text-decoration: underline; }
+
+/* =============================================
+   APP SHELL (sidebar + main)
+   ============================================= */
+.shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+/* -- Sidebar -- */
+.sidebar {
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar-logo {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--accent2);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.75rem;
+}
+.sidebar-user {
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.sidebar-user-name  { font-size: 13px; font-weight: 500; }
+.sidebar-user-email { font-size: 12px; color: var(--text2); }
+
+/* -- Nav items -- */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: all 0.15s;
+}
+.nav-item:hover          { background: var(--bg3); color: var(--text); }
+.nav-item.active         { background: var(--accent-bg); color: var(--accent2); font-weight: 500; }
+.nav-icon                { width: 18px; text-align: center; font-size: 16px; }
+.nav-sep {
+  font-size: 11px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* -- Main content area -- */
+.main          { padding: 2rem 2.5rem; overflow-x: hidden; }
+.page-title    { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.25rem; }
+.page-sub      { color: var(--text2); font-size: 14px; margin-bottom: 1.75rem; }
+
+/* =============================================
+   DASHBOARD
+   ============================================= */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+.stat-val   { font-size: 2rem; font-weight: 600; font-family: var(--font-serif); color: var(--accent2); line-height: 1; }
+.stat-label { font-size: 13px; color: var(--text2); margin-top: 0.35rem; }
+
+/* =============================================
+   SKILLS PAGE
+   ============================================= */
+.skill-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skill-level-bar {
+  width: 80px; height: 5px;
+  background: var(--bg4);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.skill-level-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+
+/* =============================================
+   PROJECTS PAGE
+   ============================================= */
+.proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+.proj-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+
+/* =============================================
+   MODAL
+   ============================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  width: 520px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.25rem; }
+
+/* =============================================
+   AVATAR
+   ============================================= */
+.avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent-bg);
+  border: 2px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent2);
+}
+
+/* =============================================
+   FLASH MESSAGE (sticky top)
+   ============================================= */
+.flash-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
